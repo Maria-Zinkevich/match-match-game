@@ -1,7 +1,5 @@
 function App() {
-  return (
-    <div>Match-match game</div>
-  );
+  return <div>Match-match game</div>;
 }
 
 export default App;
