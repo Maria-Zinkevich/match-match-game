@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import styles from "./card.module.css";
 import cardFront from "../../../images/cardFront.png";
-import aClubs from "../../../images/aClubs.png";
 
-export const Card = () => {
+export const Card = ({ cardBack }) => {
   const [isActive, setActive] = useState("false");
   const toggleClass = () => {
     setActive(!isActive);
@@ -18,7 +17,7 @@ export const Card = () => {
           <img src={cardFront} alt="Front card" />
         </div>
         <div className={`${styles.cardFace} ${styles.cardFaceBack}`}>
-          <img src={aClubs} alt="Back card" />
+          <img src={cardBack} alt="Back card" />
         </div>
       </div>
     </div>
