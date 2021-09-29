@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+
 import { Card } from "./Card/Card";
 import styles from "./gamePage.module.css";
 import {
@@ -28,10 +29,12 @@ export const GamePage = () => {
       result.push({
         id: (id += 1),
         type: type.card,
+        name: type.name,
       });
       result.push({
         id: (id += 1),
         type: type.card,
+        name: type.name,
       });
       return result;
     }, []);
@@ -42,10 +45,22 @@ export const GamePage = () => {
     setCards(createDeck());
   }, []);
 
+  //   const handleClick = () => {
+  //     openCardsArray.setOpenCards([...openCardsArray.openCards, "nj"]);
+  //     console.log(openCardsArray.openCards);
+  //   };
+
   return (
     <div className={`${styles.board}`}>
       {cards.map((card) => {
-        return <Card key={card.id} id={card.id} cardBack={card.type} />;
+        return (
+          <Card
+            key={card.id}
+            id={card.id}
+            cardBack={card.type}
+            cardName={card.name}
+          />
+        );
       })}
     </div>
   );
