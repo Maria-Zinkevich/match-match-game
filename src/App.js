@@ -1,15 +1,15 @@
 // import { WelcomePage } from "./pages/WelcomePage/WelcomePage";
 import { GamePage } from "./pages/GamePage/GamePage";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { ImageProvider } from "./store/ImageContext";
+import { GameProvider } from "./store/GameContext";
 
 export const App = () => {
   return (
-    <ImageProvider>
+    <GameProvider>
       <Router>
         {/* <Route exact path="/" component={WelcomePage} /> */}
         <Route exact path="/" component={GamePage} />
       </Router>
-    </ImageProvider>
+    </GameProvider>
   );
 };

@@ -1,29 +1,26 @@
 import React, { useEffect, useState } from "react";
 import styles from "./card.module.css";
 import cardFront from "../../../images/cardFront.png";
-import { useImages } from "../../../store/ImageContext";
+import { useGameState } from "../../../store/GameContext";
 
-export const Card = ({ cardBack, cardName }) => {
-  const openCardsArray = useImages();
+export const Card = ({ id, cardBack, cardName, handleClick }) => {
+  const gameStates = useGameState();
+
   const [isActive, setActive] = useState("false");
 
   const toggleClass = () => {
+    if (gameStates.openCards.length === 2) {
+      return false;
+    }
+
     setActive(!isActive);
   };
-  const handleClick = () => {
-    if (openCardsArray.openCards.length === 1) {
-      openCardsArray.setOpenCards([...openCardsArray.openCards, cardName]);
-    } else {
-      openCardsArray.setOpenCards([cardName]);
-    }
-  };
-
-  useEffect(() => {
-    console.log(openCardsArray.openCards);
-  }, [openCardsArray.openCards]);
 
   return (
-    <div className={`${styles.scene}`} onClick={handleClick}>
+    <div
+      className={`${styles.scene}`}
+      onClick={() => handleClick(cardName, id)}
+    >
       <div
         className={isActive ? `${styles.card}` : `${styles.isFlipped}`}
         onClick={toggleClass}

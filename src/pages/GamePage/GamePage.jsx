@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect } from "react";
+import { useGameState } from "../../store/GameContext";
 
 import { Card } from "./Card/Card";
 import styles from "./gamePage.module.css";
@@ -10,7 +11,27 @@ import {
 } from "./importCards";
 
 export const GamePage = () => {
-  const [cards, setCards] = useState([]);
+  const gameStates = useGameState();
+
+  const removeMatchedCards = (array, card) => {
+    const filteredItems = array.filter((item) => item.name !== card);
+    gameStates.setCards(filteredItems);
+    gameStates.setOpenCards([]);
+  };
+
+  const isMatch = () => {
+    let result =
+      gameStates.openCards[0].card === gameStates.openCards[1].card
+        ? removeMatchedCards(gameStates.cards, gameStates.openCards[0].card)
+        : "false";
+    gameStates.setSolved(result);
+  };
+
+  const handleClick = (card, cardId) => {
+    if (gameStates.openCards.length < 2) {
+      gameStates.setOpenCards([...gameStates.openCards, { card, cardId }]);
+    }
+  };
 
   const mixCards = (array) => {
     const newArray = array.slice(0);
@@ -42,23 +63,29 @@ export const GamePage = () => {
   };
 
   useEffect(() => {
-    setCards(createDeck());
+    gameStates.setCards(createDeck());
   }, []);
 
-  //   const handleClick = () => {
-  //     openCardsArray.setOpenCards([...openCardsArray.openCards, "nj"]);
-  //     console.log(openCardsArray.openCards);
-  //   };
+  useEffect(() => {
+    if (gameStates.openCards.length === 2) {
+      if (gameStates.openCards[0].cardId === gameStates.openCards[1].cardId) {
+        gameStates.setOpenCards([]);
+        return null;
+      }
+      setTimeout(isMatch, 2000);
+    }
+  }, [gameStates.openCards]);
 
   return (
     <div className={`${styles.board}`}>
-      {cards.map((card) => {
+      {gameStates.cards.map((card) => {
         return (
           <Card
             key={card.id}
             id={card.id}
             cardBack={card.type}
             cardName={card.name}
+            handleClick={() => handleClick(card.name, card.id)}
           />
         );
       })}
