@@ -4,7 +4,6 @@ body {
 
 .board {
     margin: 0 auto;
-    padding: 5%;
     width: 80%;
     max-width: 1010px;
     display: flex;
