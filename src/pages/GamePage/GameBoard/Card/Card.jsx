@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./card.module.css";
-import cardFront from "../../../images/cardFront.png";
-import { useGameState } from "../../../store/GameContext";
+import cardFront from "../../../../images/cardFront.png";
+import { useGameState } from "../../../../store/GameContext";
 
 export const Card = ({ id, cardBack, cardName, handleClick }) => {
   const gameStates = useGameState();
