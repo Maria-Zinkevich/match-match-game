@@ -5,7 +5,7 @@ const gameContext = createContext();
 export const GameProvider = ({ children }) => {
   const [cards, setCards] = useState([]);
   const [openCards, setOpenCards] = useState([]);
-  const [flipped, setFlipped] = useState([]);
+  const [flipped, setFlipped] = useState("false");
   const [solved, setSolved] = useState("");
 
   return (

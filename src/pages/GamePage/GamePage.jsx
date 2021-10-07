@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useGameState } from "../../store/GameContext";
 
 import { Card } from "./Card/Card";
@@ -19,11 +19,16 @@ export const GamePage = () => {
     gameStates.setOpenCards([]);
   };
 
+  const flipNotMatchedCards = () => {
+    gameStates.setFlipped("true");
+    gameStates.setOpenCards([]);
+  };
+
   const isMatch = () => {
     let result =
       gameStates.openCards[0].card === gameStates.openCards[1].card
         ? removeMatchedCards(gameStates.cards, gameStates.openCards[0].card)
-        : "false";
+        : flipNotMatchedCards();
     gameStates.setSolved(result);
   };
 
@@ -72,7 +77,7 @@ export const GamePage = () => {
         gameStates.setOpenCards([]);
         return null;
       }
-      setTimeout(isMatch, 2000);
+      setTimeout(isMatch, 1000);
     }
   }, [gameStates.openCards]);
 

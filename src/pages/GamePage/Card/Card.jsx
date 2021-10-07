@@ -16,6 +16,14 @@ export const Card = ({ id, cardBack, cardName, handleClick }) => {
     setActive(!isActive);
   };
 
+  useEffect(() => {
+    if (gameStates.openCards.length === 2 && gameStates.flipped) {
+      setActive("false");
+      gameStates.setOpenCards([]);
+      gameStates.setFlipped("false");
+    }
+  }, [gameStates.flipped]);
+
   return (
     <div
       className={`${styles.scene}`}
