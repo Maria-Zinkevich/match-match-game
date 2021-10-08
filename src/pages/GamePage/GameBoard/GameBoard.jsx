@@ -13,9 +13,13 @@ import {
 export const GameBoard = () => {
   const gameStates = useGameState();
 
-  const removeMatchedCards = (array, card) => {
-    const filteredItems = array.filter((item) => item.name !== card);
-    gameStates.setCards(filteredItems);
+  const hideMatchedCards = (array, card) => {
+    array.forEach((item) => {
+      if (item.name === card) {
+        item["hide"] = true;
+      }
+    });
+    gameStates.setCards(array);
     gameStates.setOpenCards([]);
   };
 
@@ -27,7 +31,7 @@ export const GameBoard = () => {
   const isMatch = () => {
     let result =
       gameStates.openCards[0].card === gameStates.openCards[1].card
-        ? removeMatchedCards(gameStates.cards, gameStates.openCards[0].card)
+        ? hideMatchedCards(gameStates.cards, gameStates.openCards[0].card)
         : flipNotMatchedCards();
     gameStates.setSolved(result);
   };
@@ -56,11 +60,13 @@ export const GameBoard = () => {
         id: (id += 1),
         type: type.card,
         name: type.name,
+        hide: false,
       });
       result.push({
         id: (id += 1),
         type: type.card,
         name: type.name,
+        hide: false,
       });
       return result;
     }, []);
@@ -91,6 +97,7 @@ export const GameBoard = () => {
             id={card.id}
             cardBack={card.type}
             cardName={card.name}
+            hide={card.hide}
             handleClick={() => handleClick(card.name, card.id)}
           />
         );
