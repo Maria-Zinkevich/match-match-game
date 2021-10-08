@@ -73,6 +73,7 @@ export const GameBoard = () => {
 
   useEffect(() => {
     if (gameStates.openCards.length === 2) {
+      gameStates.setSteps(gameStates.steps + 1);
       if (gameStates.openCards[0].cardId === gameStates.openCards[1].cardId) {
         gameStates.setOpenCards([]);
         return null;
