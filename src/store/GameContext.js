@@ -6,9 +6,10 @@ export const GameProvider = ({ children }) => {
   const [cards, setCards] = useState([]);
   const [openCards, setOpenCards] = useState([]);
   const [flipped, setFlipped] = useState("false");
-  const [solved, setSolved] = useState("");
+  const [solved, setSolved] = useState("0");
   const [steps, setSteps] = useState(0);
   const [time, setTime] = useState(["0", "0"]);
+  const [endGame, setEndGame] = useState(false);
 
   return (
     <gameContext.Provider
@@ -25,6 +26,8 @@ export const GameProvider = ({ children }) => {
         setSteps,
         time,
         setTime,
+        endGame,
+        setEndGame,
       }}
     >
       {children}

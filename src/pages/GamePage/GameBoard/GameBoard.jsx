@@ -21,6 +21,7 @@ export const GameBoard = () => {
     });
     gameStates.setCards(array);
     gameStates.setOpenCards([]);
+    gameStates.setSolved(+gameStates.solved + 2);
   };
 
   const flipNotMatchedCards = () => {
@@ -29,11 +30,9 @@ export const GameBoard = () => {
   };
 
   const isMatch = () => {
-    let result =
-      gameStates.openCards[0].card === gameStates.openCards[1].card
-        ? hideMatchedCards(gameStates.cards, gameStates.openCards[0].card)
-        : flipNotMatchedCards();
-    gameStates.setSolved(result);
+    gameStates.openCards[0].card === gameStates.openCards[1].card
+      ? hideMatchedCards(gameStates.cards, gameStates.openCards[0].card)
+      : flipNotMatchedCards();
   };
 
   const handleClick = (card, cardId) => {
@@ -55,7 +54,7 @@ export const GameBoard = () => {
 
   const createDeck = () => {
     let id = 0;
-    const resultCards = heartCards.slice(0, 6).reduce((result, type) => {
+    const resultCards = heartCards.slice(0, 3).reduce((result, type) => {
       result.push({
         id: (id += 1),
         type: type.card,
@@ -87,6 +86,16 @@ export const GameBoard = () => {
       setTimeout(isMatch, 1000);
     }
   }, [gameStates.openCards]);
+
+  useEffect(() => {
+    if (gameStates.cards.length === gameStates.solved) {
+      const [min, sec] = gameStates.time;
+      let resultTime = `${min < 10 ? `0${min}` : min}:${
+        sec < 10 ? `0${sec}` : sec
+      }`;
+      console.log(resultTime, gameStates.steps);
+    }
+  }, [gameStates.solved]);
 
   return (
     <div className={`${styles.board}`}>
