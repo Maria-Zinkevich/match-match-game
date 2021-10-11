@@ -4,6 +4,7 @@ const gameContext = createContext();
 
 export const GameProvider = ({ children }) => {
   const [cards, setCards] = useState([]);
+  const [cardSuit, setcardSuit] = useState("spadesCards");
   const [level, setLevel] = useState("");
   const [openCards, setOpenCards] = useState([]);
   const [flipped, setFlipped] = useState("false");
@@ -16,6 +17,8 @@ export const GameProvider = ({ children }) => {
   return (
     <gameContext.Provider
       value={{
+        cardSuit,
+        setcardSuit,
         level,
         setLevel,
         cards,

@@ -12,6 +12,17 @@ import {
 
 export const GameBoard = () => {
   const gameStates = useGameState();
+  const cardSuit = () => {
+    if (gameStates.cardSuit === "spadesCards") {
+      return spadesCards;
+    } else if (gameStates.cardSuit === "heartCards") {
+      return heartCards;
+    } else if (gameStates.cardSuit === "diamondCards") {
+      return diamondCards;
+    } else if (gameStates.cardSuit === "clubsCards") {
+      return clubsCards;
+    }
+  };
 
   const hideMatchedCards = (array, card) => {
     array.forEach((item) => {
@@ -54,7 +65,7 @@ export const GameBoard = () => {
 
   const createDeck = () => {
     let id = 0;
-    const resultCards = heartCards
+    const resultCards = cardSuit()
       .slice(0, gameStates.level)
       .reduce((result, type) => {
         result.push({
