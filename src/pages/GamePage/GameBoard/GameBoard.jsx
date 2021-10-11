@@ -54,21 +54,23 @@ export const GameBoard = () => {
 
   const createDeck = () => {
     let id = 0;
-    const resultCards = heartCards.slice(0, 6).reduce((result, type) => {
-      result.push({
-        id: (id += 1),
-        type: type.card,
-        name: type.name,
-        hide: false,
-      });
-      result.push({
-        id: (id += 1),
-        type: type.card,
-        name: type.name,
-        hide: false,
-      });
-      return result;
-    }, []);
+    const resultCards = heartCards
+      .slice(0, gameStates.level)
+      .reduce((result, type) => {
+        result.push({
+          id: (id += 1),
+          type: type.card,
+          name: type.name,
+          hide: false,
+        });
+        result.push({
+          id: (id += 1),
+          type: type.card,
+          name: type.name,
+          hide: false,
+        });
+        return result;
+      }, []);
     return mixCards(resultCards);
   };
 

@@ -5,6 +5,19 @@ import styles from "./header.module.css";
 export const Header = () => {
   const gameStates = useGameState();
 
+  const gameLevel = () => {
+    switch (gameStates.level) {
+      case 3:
+        return "easy";
+      case 6:
+        return "medium";
+      case 9:
+        return "hard";
+      default:
+        return null;
+    }
+  };
+
   useEffect(() => {
     setTimeout(() => {
       let [min, sec] = gameStates.time;
@@ -31,7 +44,7 @@ export const Header = () => {
 
       <div className={styles.infoContainer}>
         <p>Time: {showTime()}</p>
-        <p>Level:</p>
+        <p>Level: {gameLevel()}</p>
         <p>Steps: {gameStates.steps}</p>
       </div>
     </div>
