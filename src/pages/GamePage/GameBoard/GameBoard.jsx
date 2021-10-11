@@ -89,11 +89,11 @@ export const GameBoard = () => {
 
   useEffect(() => {
     if (gameStates.cards.length === gameStates.solved) {
+      gameStates.setEndGame(true);
       const [min, sec] = gameStates.time;
-      let resultTime = `${min < 10 ? `0${min}` : min}:${
-        sec < 10 ? `0${sec}` : sec
-      }`;
-      console.log(resultTime, gameStates.steps);
+      gameStates.setResultTime(
+        `${min < 10 ? `0${min}` : min}:${sec < 10 ? `0${sec}` : sec}`
+      );
     }
   }, [gameStates.solved]);
 

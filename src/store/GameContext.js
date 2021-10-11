@@ -9,6 +9,7 @@ export const GameProvider = ({ children }) => {
   const [solved, setSolved] = useState("0");
   const [steps, setSteps] = useState(0);
   const [time, setTime] = useState(["0", "0"]);
+  const [resultTime, setResultTime] = useState("");
   const [endGame, setEndGame] = useState(false);
 
   return (
@@ -25,6 +26,8 @@ export const GameProvider = ({ children }) => {
         steps,
         setSteps,
         time,
+        resultTime,
+        setResultTime,
         setTime,
         endGame,
         setEndGame,
