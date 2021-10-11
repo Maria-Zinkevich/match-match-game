@@ -1,0 +1,45 @@
+.wrap {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    background-image: url(../../images/cover.jpg);
+    height: 100vh;
+
+    background-position: center 35%;
+    background-repeat: no-repeat;
+    background-size: auto;
+
+    overflow: hidden;
+}
+
+.wrapInner {
+    width: 80%;
+    max-width: 1010px;
+    
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.wrapInnerLeft {
+    width: 45%;
+    height: 370px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.wrapInnerRight {
+    width: 50%;
+    height: 370px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/*!!!!!!!*/
+
+.btnStartGame {
+    transition: .8s;
+    margin-bottom: 0;
+}

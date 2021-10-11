@@ -1,0 +1,35 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 80%;
+    max-width: 1010px;
+}
+
+.userName {
+    font-size: 2.3em;
+    line-height: 100%;
+    color: #CC99FF;
+}
+
+button {
+    margin: auto 0;
+    padding: .4em;
+
+    font-size: 1.5em;
+    line-height: 100%;
+    color: #B366FF;
+
+    background-color: #F2E6FF;
+    border: none;
+    border-radius: 3%;
+
+    transition: .8s;
+}
+
+button:hover {
+    color: #F2E6FF;
+
+    background-color: #B366FF;
+    cursor: pointer;
+}

@@ -54,7 +54,7 @@ export const GameBoard = () => {
 
   const createDeck = () => {
     let id = 0;
-    const resultCards = heartCards.slice(0, 3).reduce((result, type) => {
+    const resultCards = heartCards.slice(0, 6).reduce((result, type) => {
       result.push({
         id: (id += 1),
         type: type.card,
