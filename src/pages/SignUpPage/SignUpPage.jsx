@@ -1,52 +1,44 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import styles from "./signUpPage.module.css";
 
 export const SignUpPage = () => {
-  const [loginEmail, setLoginEmail] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
-  const handleLogin = async (e) => {
-    let userFromStorage = JSON.parse(localStorage.getItem(loginEmail));
+  const [signUpName, setSignUpName] = useState("");
+  const [signUpEmail, setSignUpEmail] = useState("");
 
-    if (userFromStorage && userFromStorage.password === loginPassword) {
+  const handleSignUp = async () => {
+    let userFromStorage = JSON.parse(localStorage.getItem(signUpEmail));
+
+    if (userFromStorage && userFromStorage.email === signUpEmail) {
       console.log(userFromStorage);
-    } else if (userFromStorage && userFromStorage.password !== loginPassword) {
-      console.log("не верный пароль");
+    } else if (userFromStorage && userFromStorage.email !== signUpEmail) {
+      console.log("не верный email");
     } else {
       console.log("пользователя не существует");
     }
   };
 
-  let history = useHistory();
-  const testF = () => {
-    history.push("/signIn");
-  };
-
   return (
-    <>
+    <form onSubmit={handleSignUp}>
+      <input
+        placeholder="Your name"
+        type="text"
+        value={signUpName}
+        onChange={(e) => {
+          setSignUpName(e.target.value);
+        }}
+      />
       <input
         placeholder="Your email"
         type="text"
-        value={loginEmail}
+        value={signUpEmail}
         onChange={(e) => {
-          setLoginEmail(e.target.value);
+          setSignUpEmail(e.target.value);
         }}
       />
-      <input
-        placeholder="Your password"
-        type="text"
-        value={loginPassword}
-        onChange={(e) => {
-          setLoginPassword(e.target.value);
-        }}
-      />
-      <button type="submit" onClick={handleLogin}>
+      <button type="submit" onClick={handleSignUp}>
         Sign up
       </button>
-
-      <div>
-        <p>You must log in to view the page at </p>
-        <button onClick={testF}>Log in</button>
-      </div>
-    </>
+    </form>
   );
 };

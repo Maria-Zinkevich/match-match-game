@@ -5,16 +5,14 @@ export const SignInPage = () => {
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
   const handleSignIn = async (e) => {
     e.preventDefault();
     setName("");
     setSurname("");
     setEmail("");
-    setPassword("");
 
-    let user = { name, surname, email, password };
+    let user = { name, surname, email };
 
     if (localStorage.getItem(`${email}`)) {
       console.log("пользователь c таким email уже существует");

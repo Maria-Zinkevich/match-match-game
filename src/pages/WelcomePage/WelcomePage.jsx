@@ -11,13 +11,6 @@ import {
 import styles from "./welcomePage.module.css";
 
 export const WelcomePage = () => {
-  let history = useHistory();
-  const handleSignIn = () => {
-    history.replace("/signIn");
-  };
-
-  //   const handleLogin = () => {};
-
   return (
     <div className={styles.wrap}>
       <Router>
