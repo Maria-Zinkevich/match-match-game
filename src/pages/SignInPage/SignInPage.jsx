@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "./signInPage.module.css";
 
 export const SignInPage = () => {
   const [name, setName] = useState("");
@@ -46,14 +47,6 @@ export const SignInPage = () => {
         value={email}
         onChange={(e) => {
           setEmail(e.target.value);
-        }}
-      />
-      <input
-        placeholder="Your password"
-        type="text"
-        value={password}
-        onChange={(e) => {
-          setPassword(e.target.value);
         }}
       />
       <button type="submit" form="formLogin" onClick={handleSignIn}>
