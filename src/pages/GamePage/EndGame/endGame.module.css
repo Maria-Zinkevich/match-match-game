@@ -20,9 +20,9 @@
     padding: 10px;
 
     background-image: url(../../../images/cover.jpg);
-    background-position: center;
+    background-position: 45% 45%;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: auto;
 
     overflow: hidden;
 }
@@ -43,13 +43,14 @@
 
 .button {
     margin-left: 85%;
-    padding: .6em;
+    padding: .6em 1em;
 
     font-size: 1em;
+    font-weight: bold;
     line-height: 100%;
-    color: #F2E6FF;
+    color: #B366FF;
 
-    background-color: #9933FF;
+    background-color: #F2E6FF;
     border: none;
     border-radius: 3%;
 }

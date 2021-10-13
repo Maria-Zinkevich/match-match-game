@@ -1,8 +1,22 @@
+import { useEffect } from "react";
 import { useGameState } from "../../../store/GameContext";
 import styles from "./gameLevel.module.css";
 
 export const GameLevel = () => {
   const gameStates = useGameState();
+
+  useEffect(() => {
+    switch (gameStates.numberOfCardPairs) {
+      case 3:
+        return gameStates.setLevel("easy");
+      case 6:
+        return gameStates.setLevel("medium");
+      case 9:
+        return gameStates.setLevel("hard");
+      default:
+        return null;
+    }
+  }, [gameStates.numberOfCardPairs]);
 
   return (
     <div className={styles.gameLevel}>
@@ -15,7 +29,9 @@ export const GameLevel = () => {
             name="levelInput"
             value="Easy"
             className={styles.gameLevelInput}
-            onClick={() => gameStates.setLevel(3)}
+            onClick={() => {
+              gameStates.setNumberOfCardPairs(3);
+            }}
           />
         </li>
         <li className={styles.gameLevelItem}>
@@ -25,7 +41,9 @@ export const GameLevel = () => {
             name="levelInput"
             value="Medium"
             className={styles.gameLevelInput}
-            onClick={() => gameStates.setLevel(6)}
+            onClick={() => {
+              gameStates.setNumberOfCardPairs(6);
+            }}
           />
         </li>
         <li className={styles.gameLevelItem}>
@@ -35,7 +53,9 @@ export const GameLevel = () => {
             name="levelInput"
             value="Hard"
             className={styles.gameLevelInput}
-            onClick={() => gameStates.setLevel(9)}
+            onClick={() => {
+              gameStates.setNumberOfCardPairs(9);
+            }}
           />
         </li>
       </ul>

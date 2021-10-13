@@ -25,34 +25,36 @@ export const SignInPage = () => {
   };
 
   return (
-    <form onSubmit={handleSignIn}>
-      <input
-        placeholder="Your name"
-        type="text"
-        value={name}
-        onChange={(e) => {
-          setName(e.target.value);
-        }}
-      />
-      <input
-        placeholder="Your last name"
-        type="text"
-        value={surname}
-        onChange={(e) => {
-          setSurname(e.target.value);
-        }}
-      />
-      <input
-        placeholder="Your email"
-        type="text"
-        value={email}
-        onChange={(e) => {
-          setEmail(e.target.value);
-        }}
-      />
-      <button type="submit" form="formLogin" onClick={handleSignIn}>
-        Sign in
-      </button>
-    </form>
+    <div className={styles.wrap}>
+      <form onSubmit={handleSignIn}>
+        <input
+          placeholder="Your name"
+          type="text"
+          value={name}
+          onChange={(e) => {
+            setName(e.target.value);
+          }}
+        />
+        <input
+          placeholder="Your last name"
+          type="text"
+          value={surname}
+          onChange={(e) => {
+            setSurname(e.target.value);
+          }}
+        />
+        <input
+          placeholder="Your email"
+          type="text"
+          value={email}
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
+        />
+        <button type="submit" form="formLogin" onClick={handleSignIn}>
+          Sign in
+        </button>
+      </form>
+    </div>
   );
 };

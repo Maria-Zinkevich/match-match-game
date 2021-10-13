@@ -66,7 +66,7 @@ export const GameBoard = () => {
   const createDeck = () => {
     let id = 0;
     const resultCards = cardSuit()
-      .slice(0, gameStates.level)
+      .slice(0, gameStates.numberOfCardPairs)
       .reduce((result, type) => {
         result.push({
           id: (id += 1),

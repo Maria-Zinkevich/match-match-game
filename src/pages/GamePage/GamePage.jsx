@@ -1,4 +1,4 @@
-import { EndGame } from "../../components/modal/EndGame/EndGame";
+import { EndGame } from "../GamePage/EndGame/EndGame";
 import { useGameState } from "../../store/GameContext";
 import { GameBoard } from "./GameBoard/GameBoard";
 import styles from "./gamePage.module.css";

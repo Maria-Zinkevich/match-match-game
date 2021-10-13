@@ -5,9 +5,11 @@ import { Header } from "./Header/Header";
 import { Rules } from "./Rules/Rules";
 import { CardSuits } from "./CardSuits/CardSuits";
 import { GameLevel } from "./GameLevel/GameLevel";
+import { useGameState } from "../../store/GameContext";
 
 export const MainPage = () => {
   const history = useHistory();
+  const gameStates = useGameState();
   return (
     <div className={styles.wrap}>
       <Header />
@@ -23,6 +25,7 @@ export const MainPage = () => {
             className={styles.btnStartGame}
             onClick={() => {
               history.push("/GamePage");
+              gameStates.setTime(["0", "0"]);
             }}
           >
             Start the game
