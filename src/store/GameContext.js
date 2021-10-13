@@ -15,6 +15,9 @@ export const GameProvider = ({ children }) => {
   const [resultTime, setResultTime] = useState("");
   const [endGame, setEndGame] = useState(false);
   const [userName, setUserName] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+  const [gameData, setGameData] = useState({});
+  const [gameHistory, setGameHistory] = useState([]);
 
   return (
     <gameContext.Provider
@@ -43,6 +46,12 @@ export const GameProvider = ({ children }) => {
         setEndGame,
         userName,
         setUserName,
+        userEmail,
+        setUserEmail,
+        gameData,
+        setGameData,
+        gameHistory,
+        setGameHistory,
       }}
     >
       {children}

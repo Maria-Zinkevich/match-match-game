@@ -19,6 +19,7 @@ export const SignUpPage = () => {
     ) {
       history.push("/MainPage");
       gameStates.setUserName(userFromStorage.name);
+      gameStates.setUserEmail(userFromStorage.name);
     } else {
       alert("The user does not exist.");
     }
