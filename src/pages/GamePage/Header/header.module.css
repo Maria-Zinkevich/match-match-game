@@ -14,6 +14,7 @@
     font-size: 2em;
     line-height: 100%;
     color: #CC99FF;
+    text-transform: capitalize;
 }
 
 button {

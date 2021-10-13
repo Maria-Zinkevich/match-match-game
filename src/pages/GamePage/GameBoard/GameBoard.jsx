@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useGameState } from "../../../store/GameContext";
 
 import { Card } from "./Card/Card";

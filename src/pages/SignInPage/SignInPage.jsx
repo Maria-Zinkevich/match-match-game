@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 import styles from "./signInPage.module.css";
 
 export const SignInPage = () => {
+  const history = useHistory();
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [email, setEmail] = useState("");
@@ -15,9 +17,10 @@ export const SignInPage = () => {
     let user = { name, surname, email };
 
     if (localStorage.getItem(`${email}`)) {
-      console.log("пользователь c таким email уже существует");
+      alert("A user with this email already exists.");
     } else {
       localStorage.setItem(`${email}`, JSON.stringify(user));
+      history.push("/SignUpPage");
     }
   };
 

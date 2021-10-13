@@ -5,7 +5,7 @@ const gameContext = createContext();
 export const GameProvider = ({ children }) => {
   const [cards, setCards] = useState([]);
   const [cardSuit, setcardSuit] = useState("spadesCards");
-  const [level, setLevel] = useState("");
+  const [level, setLevel] = useState(6);
   const [openCards, setOpenCards] = useState([]);
   const [flipped, setFlipped] = useState("false");
   const [solved, setSolved] = useState("0");
@@ -13,6 +13,7 @@ export const GameProvider = ({ children }) => {
   const [time, setTime] = useState(["0", "0"]);
   const [resultTime, setResultTime] = useState("");
   const [endGame, setEndGame] = useState(false);
+  const [userName, setUserName] = useState("");
 
   return (
     <gameContext.Provider
@@ -37,6 +38,8 @@ export const GameProvider = ({ children }) => {
         setTime,
         endGame,
         setEndGame,
+        userName,
+        setUserName,
       }}
     >
       {children}
