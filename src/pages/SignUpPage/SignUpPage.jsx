@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useGameState } from "../../store/GameContext";
 import styles from "./signUpPage.module.css";
@@ -6,22 +5,22 @@ import styles from "./signUpPage.module.css";
 export const SignUpPage = () => {
   const gameStates = useGameState();
   const history = useHistory();
-  const [signUpName, setSignUpName] = useState("");
-  const [signUpEmail, setSignUpEmail] = useState("");
 
   const handleSignUp = async (e) => {
     e.preventDefault();
-    let userFromStorage = JSON.parse(localStorage.getItem(signUpEmail));
+
+    let userFromStorage = JSON.parse(
+      localStorage.getItem(gameStates.userEmail)
+    );
 
     if (
-      userFromStorage.name === signUpName &&
-      userFromStorage.email === signUpEmail
+      userFromStorage.name === gameStates.userName &&
+      userFromStorage.email === gameStates.userEmail
     ) {
       history.push("/MainPage");
-      gameStates.setUserName(userFromStorage.name);
-      gameStates.setUserEmail(userFromStorage.name);
     } else {
       alert("The user does not exist.");
+      history.push("/SignInPage");
     }
   };
 
@@ -31,17 +30,17 @@ export const SignUpPage = () => {
         <input
           placeholder="Your name"
           type="text"
-          value={signUpName}
+          value={gameStates.userName}
           onChange={(e) => {
-            setSignUpName(e.target.value);
+            gameStates.setUserName(e.target.value);
           }}
         />
         <input
           placeholder="Your email"
           type="text"
-          value={signUpEmail}
+          value={gameStates.userEmail}
           onChange={(e) => {
-            setSignUpEmail(e.target.value);
+            gameStates.setUserEmail(e.target.value);
           }}
         />
         <button type="submit" onClick={handleSignUp}>
