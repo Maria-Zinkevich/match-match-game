@@ -1,0 +1,32 @@
+.cardSuits {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.cardSuitsTitle {
+    margin-top: .3em;
+    margin-bottom: .8em;
+    font-size: 2em;
+    line-height: 100%;
+    color: #CC99FF;
+}
+
+.cardSuitsContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.card {
+    width: 120px;
+    height: 180px;
+
+    transition: .8s;
+}
+
+.card:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}

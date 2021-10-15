@@ -1,0 +1,54 @@
+.header {
+    margin: 0 auto;
+    width: 80%;
+    max-width: 1010px;
+}
+
+.wrap {
+    margin: auto 1%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.userName {
+    font-size: 2em;
+    line-height: 100%;
+    color: #CC99FF;
+    text-transform: capitalize;
+}
+
+button {
+    margin: auto 0;
+    padding: .4em;
+
+    font-size: 1.2em;
+    line-height: 100%;
+    color: #B366FF;
+
+    background-color: #F2E6FF;
+    border: none;
+    border-radius: 3%;
+}
+
+button:hover {
+    color: #F2E6FF;
+
+    background-color: #B366FF;
+    cursor: pointer;
+}
+
+.infoContainer {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1em;
+
+    font-size: 1.5em;
+    line-height: 100%;
+
+    color: #CC99FF;
+}

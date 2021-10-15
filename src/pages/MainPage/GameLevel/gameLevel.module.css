@@ -1,0 +1,55 @@
+.gameLevel {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.gameLevelTitle {
+    margin-top: .3em;
+    margin-bottom: .8em;
+    font-size: 2em;
+    line-height: 100%;
+    color: #CC99FF;
+}
+
+.gameLevelList {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.gameLevelItem {
+    margin: 0;
+    padding: 0;
+
+    font-size: 1.5em;
+    line-height: 100%;
+
+    color: #CC99FF;
+    list-style-type: none;
+}
+
+.gameLevelInput {
+    width: 100px;
+    padding: .4em;
+
+    font-size: 1em;
+    line-height: 100%;
+    color: #B366FF;
+
+    background-color: #F2E6FF;
+    border: none;
+    border-radius: 3%;
+
+    transition: .8s;
+}
+
+.gameLevelInput:hover {
+    color: #F2E6FF;
+
+    background-color: #B366FF;
+    cursor: pointer;   
+}
